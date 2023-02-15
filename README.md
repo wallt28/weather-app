@@ -16,7 +16,7 @@ To install and use this app:
 
 1.  Clone this repository to your local machine
 4.  Install the required dependencies by running `pip install -r requirements.txt`
-5.  In the '.env` add your OpenWeatherMap API key to the file (https://openweathermap.org/api)
+5.  Rename the .env.example file to .env and add your OpenWeatherMap API key to the file (https://openweathermap.org/api)
 6.  Run the command `flask run` to start the server
 
 ## API Reference

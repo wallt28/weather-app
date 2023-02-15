@@ -2,10 +2,12 @@ import requests
 from flask import request, jsonify, render_template
 from flask_smorest import Blueprint
 from geopy.geocoders import Nominatim
-
+from dotenv import load_dotenv
 from datetime import datetime
+import os
 
 
+load_dotenv()
 
 blp = Blueprint("weather", "weather", description="Weather")
 
@@ -15,8 +17,8 @@ def get_weather_data(city):
     location = geolocator.geocode(city)
     latitude = location.latitude
     longitude = location.longitude
-
-    url = f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid=59a99d59af441ff896e461934146af39&units=metric"
+    apikey = os.getenv('API_KEY')
+    url = f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={apikey}&units=metric"
     r = requests.get(url).json()
 
     return r
